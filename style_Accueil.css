@@ -1,0 +1,31 @@
+img
+{
+    width: 80px;
+    height: auto;
+}
+
+body{
+    background-image: url("images/fond.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.Accueil
+{
+    color: gray;
+    font-size: 30px;
+    justify-content: flex-end;
+}
+
+
+
+.col-4{
+    justify-content: flex-start;
+}
+
+.connexion{
+    border: 5px solid black;
+    border-radius: 10px;
+    justify-content: space-between;
+    background-color: rgb(238, 241, 245);
+}
