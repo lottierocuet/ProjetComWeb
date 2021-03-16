@@ -2,69 +2,29 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
         <title>Annuaire de l'ENSC - Accueil</title>
         <link rel = "stylesheet" href = "style_Accueil.css"/>
     </head>
     <body>
-
-        <div class = "Barre">
-            <nav class="navbar bg-info navbar-light">
-                <a class="navbar-brand" href="#">Menu</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <p>
-                            <img src = "images/user.png" alt = "Image de connexion"/>
-                        </p>
-                    <a class="nav-link" href="#">Se connecter</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">Compte gestionnaire</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="Creation.html">Créer un compte</a>
-                    </li>
-                </ul>
-                </div>
-            </nav>
-        </div>
-
-
-
-
-
         <h1>Bienvenue sur notre projet</h1>
-        <div class ="row">
-        <div class ="col-4"></div>
-        <div class ="Accueil col-8">Accueil</div>
-    </div>
+        <p>Accueil</p>
         
-        <form method="post" action="?" class ="connexion"> 
+        <form method="post" role="form" action="Login_accueil.php"> 
             <p>
-                
                 Je suis gestionnaire <br/>
                 <strong>Connectez-vous : </strong> <br/>
                 <br/>
-                <div class = "row">
-                    <div class = "col-4">
-                        <input placeholder="Identifiant" type="text" name="identifiant" /> <br/>
-                        <br/>
-                        <input placeholder = "Mot de Passe" type="password" name="mdp"/> <br/>
-                        <br/>
-                    </div>
-                    <div class = "col-8">
-                        <p>
-                            <img src = "images/user.png" alt = "Image de connexion"/>
-                        </p>
-                    </div>
-                </div>
-                <input type="submit" value="Se connecter"/>
+                <input placeholder="Identifiant" type="text" name="identifiant" /> <br/>
+                <br/>
+                <input placeholder = "Mot de Passe" type="password" name="mdp"/> <br/>
+                <br/>
+                <p>
+                    <img src = "user.png" alt = "Image de connexion"/>
+                </p>
+               <!--  <input type="submit" value="Se connecter"/> -->
+                <a href="Login_accueil.php">Se connecter</a>
             </p>
         </form>
-        <a class = "img-fluid" href= "Accueil_eleve.html">Se connecter en tant qu'élève</a>
+        <a href= "Acceuil_eleve.html">Se connecter en tant qu'élève</a>
     </body>
 </html>
