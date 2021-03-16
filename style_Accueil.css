@@ -26,6 +26,29 @@ body{
 .connexion{
     border: 5px solid black;
     border-radius: 10px;
-    justify-content: space-between;
     background-color: rgb(238, 241, 245);
+    width: 50%;
+    padding-left: 5%;
+}
+
+
+
+
+/* Création */
+
+
+legend{
+    font-size : 14px;
+    font-style: italic;
+    color: grey;
+    
+}
+
+input{
+    border-radius: 10px;
+}
+
+.inscription{
+    background-color: rgb(126, 183, 190);
+    border-radius: 10px;
 }
