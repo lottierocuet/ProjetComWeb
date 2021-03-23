@@ -22,6 +22,12 @@
                         <div class = "row">
                             <div class = "col-4">
                                 <fieldset><legend>Mentions obligatoires</legend>
+                                    <label for="statut">Statut du compte :</label> 
+                                    <input type="radio" name="statut" id="eleve" required  checked/> 
+                                    <label for= "eleve">Eleve</label> <br/>
+                                    <input type ="radio" name="statut" id="gestionnaire" required/> 
+                                    <label for= "gestionnaire" >Gestionnaire</label> <br/>
+                                    <br/>
                                     <label for="prenom">Prénom :</label> 
                                     <input type="text" name="prenom" required/> <br/>
                                     <br/>
