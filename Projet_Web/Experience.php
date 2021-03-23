@@ -23,8 +23,11 @@
                                     <label for="intitule">Intitulé de l'expérience :</label> 
                                     <input type="text" name="intitule" required/> <br/>
                                     <br/>
-                                    <label for="duree">Durée (Mois) :</label>
-                                    <input type="number" name="duree" required/> <br/>
+                                    <label for="date_debut">Date de début :</label>
+                                    <input placeholder = "JJ/MM/AA" type="text" name="date_debut" required/> <br/>
+                                    <br/>
+                                    <label for="date_fin">Date de fin :</label>
+                                    <input placeholder = "JJ/MM/AA" type="text" name="date_fin"/> <br/>
                                     <br/>
                                     <label for="description">Description :</label>
                                     <textarea name = "description" rows = "4"></textarea><br/>
