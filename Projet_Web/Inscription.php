@@ -9,7 +9,7 @@
     <body>
         <div class = "row">
             <div class = "col-3">
-                <?php require_once "NavBarre_Eleve.html"; ?>
+                <?php require_once "NavBarre.html"; ?>
             </div>
             <div class = "col-9">
                 <h1 >M'inscrire</h1>
@@ -46,7 +46,7 @@
                                     <input type="text" name="identifiant" required/> <br/>
                                     <br/>
                                     <label for="mdp">Mot de Passe :</label>
-                                    <input type="password" name="mdp" required/> <br/>
+                                    <input type="password" name="mot_de_passe" required/> <br/>
                                     <br/>
                                     <label for="promotion">Promotion :</label>
                                     <input type="number" name="promotion" min = "2007" required/> <br/>
@@ -56,6 +56,21 @@
                                     <br/>
                                 </fieldset>
                                 <fieldset><legend>Mentions facultatives</legend>
+                                    <label for="age">Âge :</label>
+                                    <input type="number" name="age"/> <br/>
+                                    <br/>
+                                    <label for="nom_promotion">Nom de la promotion :</label>
+                                    <input type="text" name="nom_promotion"/> <br/>
+                                    <br/>
+                                    <label for="nationalite">Nationalité :</label>
+                                    <input type="text" name="nationalite"/> <br/>
+                                    <br/>
+                                    <label for="code_postal">Code Postal :</label>
+                                    <input type="number" name="code_postal"/> <br/>
+                                    <br/>
+                                    <label for="ville">Ville :</label>
+                                    <input type="text" name="ville"/> <br/>
+                                    <br/>
                                     <label for="adresse">Adresse :</label>
                                     <textarea class = "adresse" name = "adresse" rows = "2"></textarea><br/>
                                     <br/>
