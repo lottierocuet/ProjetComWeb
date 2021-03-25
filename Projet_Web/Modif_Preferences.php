@@ -12,7 +12,7 @@
                 <?php require_once "NavBarre_Eleve.html"; ?>
             </div>
             <div class = "col-9">
-                <h1 >Modifier mes expériences</h1>
+                <h1 >Affiner ma recherche</h1>
                 <div class ="row">
                     <div class ="col-3"></div>
                     <div class ="Accueil col-9">Mes préférences</div>
