@@ -28,6 +28,14 @@
                                     <input type ="radio" name="statut" id="gestionnaire" required/> 
                                     <label for= "gestionnaire" >Gestionnaire</label> <br/>
                                     <br/>
+                                    <label for="sexe">Sexe :</label> 
+                                    <input type="radio" name="sexe" id="homme" required/> 
+                                    <label for= "homme">Homme</label> <br/>
+                                    <input type ="radio" name="sexe" id="femme" required/> 
+                                    <label for= "femme" >Femme</label> <br/>
+                                    <input type ="radio" name="sexe" id="autre" required/> 
+                                    <label for= "autre" >Autre</label> <br/>
+                                    <br/>
                                     <label for="prenom">Prénom :</label> 
                                     <input type="text" name="prenom" required/> <br/>
                                     <br/>
