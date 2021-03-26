@@ -1,5 +1,5 @@
 <?php
-$bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
+$bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', '001', 'ENSC2021');
 session_start();
 
     
@@ -26,7 +26,7 @@ session_start();
       $ville_organisation=$_POST['ville_organisation'];
       $code_postal_organisation=$_POST['code_postal_organisation'];
       $adresse_organisation=$_POST['adresse_organisation'];
-    }
+    
         
         // insert expérience into BD
         //$stmt = $bdd->prepare('select * from utilisateur where Id_Utilisateur=? and Mot_de_passe=?');
@@ -45,22 +45,22 @@ session_start();
             Poste, 
             Description_Experience  , 
             Region, 
-                )VALUES (?, ? ,?,?,?,?,?,?,?,?,?,?,?,?)');
+                )VALUES (:id_experience, :type, :date_debut, :date_fin, :competence_1, :competence_2, :competence_3, :activite_1, :activite_2, :activite_3, :salaire, :poste, :description, :region)');
 $req=$req->execute(array(
-      $id_experience,
-      $type,
-      $date_debut,
-      $date_fin,
-      $region,
-      $poste,
-      $salaire,
-      $description,
-      $competence_1,
-      $competence_2,
-      $competence_3,
-      $activite_1,
-      $activite_2,
-      $activite_3
+      'id_experience'=>$id_experience,
+      'type'=>$type,
+      'date_debut'=>$date_debut,
+      'date_fin'=>$date_fin,
+      'competence_1'=>$competence_1,
+      'competence_2'=>$competence_2,
+      'competence_3'=>$competence_3,
+      'activite_1'=>$activite_1,
+      'activite_2'$activite_2,
+      'activite_3'$activite_3
+      'salaire'=>$salaire,
+      'poste'=>$poste,
+      'description'=>$description,
+      'region'=>$region,
             ));
 
 $req2 =$bdd->prepare('INSERT INTO organisation
@@ -71,7 +71,7 @@ $req2 =$bdd->prepare('INSERT INTO organisation
             Ville_Entreprise, 
             Rue_Organisation, 
             Code_postal_Organisation 
-            )VALUES (?, ?,?,?,?,?)');
+            )VALUES (?, ?, ?, ?, ?, ?)');
 $req2=$req2->execute(array(
             $nom_organisation, $type_organisation, $activite_organisation, $ville_organisation, $adresse_organisation, $code_postal_organisation
             ));
@@ -81,7 +81,7 @@ $req2=$req2->execute(array(
 
         header("Accueil_Eleve.php");
 
-  
+    }
     ?>
 
   <!doctype html>
