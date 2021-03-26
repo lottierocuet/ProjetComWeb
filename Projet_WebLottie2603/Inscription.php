@@ -6,17 +6,16 @@ if(!empty($_POST['prenom']) && !empty($_POST['nom'])){
 
 
 //1) on récupère les données via des post et des variables 
- echo $_POST['prenom'];
 $prenom=$_POST['prenom'];
 $nom=$_POST['nom'];
 $identifiant=$_POST['identifiant'];
-$mot_de_passe=$_POST['mot_de_passe'];//KO
+$mot_de_passe=$_POST['mot_de_passe'];
 $promotion=$_POST['promotion'];
 $email=$_POST['email'];
-$nom_promotion=$_POST['nom_promotion'];//KO
-$nationalite=$_POST['nationalite'];//KO
-$code_postal=$_POST['code_postal'];//KO
-$ville=$_POST['ville'];//KO
+$nom_promotion=$_POST['nom_promotion'];
+$nationalite=$_POST['nationalite'];
+$code_postal=$_POST['code_postal'];
+$ville=$_POST['ville'];
 $adresse=$_POST['adresse'];
 $telephone=$_POST['telephone'];
 
@@ -57,7 +56,7 @@ $req3=$req3->execute(array(
             ));
 
         header('Location: Accueil_Eleve.php');
-        print "Ca marche vite fait ";
+     
         
      
 }
