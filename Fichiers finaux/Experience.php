@@ -1,6 +1,5 @@
 <?php
-$bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', '001', 'ENSC2021');
-session_start();
+include 'index.php';
 
     
     if(!empty($_POST['id_experience']) && !empty($_POST['type'])) 
@@ -33,18 +32,18 @@ session_start();
         $req =$bdd->prepare('INSERT INTO experience (
             Id_Experience, 
             Type_Experience, 
-            Date_debut_Experience ,
-            Date_fin_Experience ,
-            Domaine_competence_1  , 
+            Date_debut_Experience,
+            Date_fin_Experience,
+            Domaine_competence_1, 
             Domaine_competence_2, 
-            Domaine_competence_3  , 
-            Secteur_d_activité_1  , 
+            Domaine_competence_3, 
+            Secteur_d_activité_1, 
             Secteur_d_activité_2, 
             Secteur_d_activité_3, 
             Salaire, 
             Poste, 
-            Description_Experience  , 
-            Region, 
+            Description_Experience, 
+            Region 
                 )VALUES (:id_experience, :type, :date_debut, :date_fin, :competence_1, :competence_2, :competence_3, :activite_1, :activite_2, :activite_3, :salaire, :poste, :description, :region)');
 $req=$req->execute(array(
       'id_experience'=>$id_experience,
@@ -79,7 +78,7 @@ $req2=$req2->execute(array(
 
 
 
-        header("Accueil_Eleve.php");
+        header("Mes_Experiences.php");
 
     }
     ?>
