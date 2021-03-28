@@ -116,9 +116,6 @@ $req2=$req2->execute(array($email, $nationalite, $code_postal, $ville, $adresse,
                                     <br/>
                                 </fieldset>
                                 <fieldset><legend>Mentions facultatives</legend>
-                                    <label for="age">Âge :</label>
-                                    <input type="number" name="age"/> <br/>
-                                    <br/>
                                     <label for="nationalite">Nationalité :</label>
                                     <input type="text" name="nationalite"/> <br/>
                                     <br/>
