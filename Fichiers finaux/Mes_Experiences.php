@@ -54,7 +54,7 @@
                     <div class ="col-4"></div>
                     <div class ="Accueil col-8">Mes expériences</div>
                 </div>
-                <form method = "get" action="Infos.php" class ="Infos">
+                <form method = "get" action="Mes_Experiences.php" class ="Infos">
                     <div class ="cadre"> 
                         <h2>Expériences : </h2>
 
