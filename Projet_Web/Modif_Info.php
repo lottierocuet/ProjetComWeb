@@ -20,8 +20,8 @@ $sexe=$_POST['sexe'];
 $promotion=$_POST['promotion'];
 
 $req =$bdd->prepare('UPDATE utilisateur 
-            SET Prenom_Utilisateur = :prenom
-            Nom_Utilisateur = :nom 
+            SET Prenom_Utilisateur = :prenom,
+            Nom_Utilisateur = :nom, 
             Mot_De_Passe = :mot_de_passe,
             Promotion = :promotion
             WHERE Id_Utilisateur = :identifiant
