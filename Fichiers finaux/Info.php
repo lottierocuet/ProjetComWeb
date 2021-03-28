@@ -54,7 +54,7 @@
                     <div class ="col-4"></div>
                     <div class ="Accueil col-8">Mes infos</div>
                 </div>
-                <form mmethod = "get" action="Infos.php" class ="Infos">
+                <form method = "get" action="Info.php" class ="Infos">
                 <div class ="cadre"> 
                     <h2>Promotion: </h2>
                     <?php echo $user["Promotion"]?> 
