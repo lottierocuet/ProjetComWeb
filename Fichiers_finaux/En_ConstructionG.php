@@ -14,18 +14,14 @@
             <div class = "col-9">
                 <h1 >Bienvenue sur notre projet</h1>
                 <div class ="row">
-                    <div class ="col-4"></div>
-                    <div class ="Accueil col-8">Accueil</div>
+                    <div class ="col-md-4 col-3"></div>
+                    <div class ="Accueil col-md-8 c">Accueil</div>
                 </div>
-                
                 <form method="GET" action="Accueil_gestionnaire.php" class ="cadre"> 
                     <h1>
-                        
                         Page en Construction :'( <br/>
                     </h1>
-                    <p><a href="Annuaire.php">Retour à la page d'accueil</p>
-
-                        
+                    <a href="Annuaire.php">Retour à l'annuaire</a>  
             </div>
     </body>
 </html>
