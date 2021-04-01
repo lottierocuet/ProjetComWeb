@@ -1,12 +1,10 @@
  <?php
-
-
- include 'index.php'; 
+    include_once "index.php";
+    check_gestionnaire();
+    check_connected();
 if(!empty($_POST['prenom']) && !empty($_POST['nom']))
 {
-
 //1) on récupère les données via des post et des variables 
-
 $prenom=$_POST['prenom'];
 $nom=$_POST['nom'];
 $mot_de_passe=$_POST['mot_de_passe'];
@@ -18,7 +16,6 @@ $adresse=$_POST['adresse'];
 $telephone=$_POST['telephone'];
 $sexe=$_POST['sexe'];
 $promotion=$_POST['promotion'];
-
 $req =$bdd->prepare('UPDATE utilisateur 
             SET Prenom_Utilisateur = :prenom,
             Nom_Utilisateur = :nom, 
@@ -32,8 +29,6 @@ $req->execute(array(
             'mot_de_passe'=>$mot_de_passe,
             'promotion'=>$promotion
             ));
-
-
 $req2 =$bdd->prepare('UPDATE elève
             SET
             E_mail_Eleve = :email, 
@@ -54,19 +49,10 @@ $req2=$req2->execute(array(
             'sexe'=>$sexe
     //SI CONSTRAINT VIOLATION TRUC ==> Vider les tables manuellement dans élève et utilisateur
             ));
-
     header('Location: Info.php');
-
 }   
 //Boucle if statut==on {accueil_eleve}else{accueil_gestionnaire}
-
-
-    
-
 ?>
-
-
-
 <!doctype html>
 <html>
     <head>
@@ -76,17 +62,17 @@ $req2=$req2->execute(array(
         <link rel = "stylesheet" href = "style_general.css"/>
     </head>
     <body>
-        <div class = "row">
+        <div class = "row"> <!--Création d'une ligne où la navbar et le reste sont côtes à côtes-->
             <div class = "col-3">
-                <?php require_once "NavBarre_Eleve.html"; ?>
+                <?php require_once "NavBarre_Eleve.html"; ?> <!--Permet d'afficher la barre de navigation-->
             </div>
             <div class = "col-9">
                 <h1 >Modifier mes informations</h1>
                 <div class ="row">
-                    <div class ="col-4"></div>
-                    <div class ="Accueil col-8">Mes infos</div>
+                    <div class ="col-md-4 col-3"></div>
+                    <div class ="Accueil col-md-8 col-9">Mes infos</div> <!--Affiche la phrase sur la droite de l'écran-->
                 </div>
-                <form method="post" action="?" class ="cadre"> 
+                <form method="post" action="?" class ="cadre"> <!-- Démarre le formulaire et affiche le cadre-->
                     <strong>Veuillez remplir la totalité des champs</strong>
                     <p>
                         <div class = "row">
@@ -129,15 +115,15 @@ $req2=$req2->execute(array(
                                 <label for="adresse">Adresse :</label>
                                 <textarea class = "adresse" name = "adresse" rows = "2"></textarea><br/>
                                 <br/>
+                             <!-- Toutes les infos de Inscription peuvent être modifiées ici. Il faut remplir toutes les cases qui furent remplies de nouveau -->
                             </div>  
                         </div>
                         <div class ="row">
-                            <div class ="col-8"></div>
-                            <div class = "col-4">
+                            <div class ="col-md-8 col-12"></div>
+                            <div class = "col-md-4 col">
                             <input class = "inscription" type="submit" value="Confirmer"/>
                             </div>
                         </div>
-                        
                     </p>
                 </form>
             </div>
