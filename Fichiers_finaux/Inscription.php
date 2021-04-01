@@ -1,11 +1,7 @@
  <?php
-
-
  include 'index.php'; 
 if(!empty($_POST['prenom']) && !empty($_POST['nom']))
 {
-
-
 //1) on récupère les données via des post et des variables 
 $statut=$_POST['statut'];
 $identifiant = $bdd->lastInsertId();
@@ -20,7 +16,6 @@ $adresse=$_POST['adresse'];
 $telephone=$_POST['telephone'];
 $sexe=$_POST['sexe'];
 $promotion=$_POST['promotion'];
-
 $req =$bdd->prepare('INSERT INTO utilisateur (
             Prenom_Utilisateur, 
             Nom_Utilisateur,
@@ -34,9 +29,7 @@ $req->execute(array(
             'promotion'=>$promotion,
             'statut' => $statut
             ));
-
 $user_id = $bdd->lastInsertId();
-
 $req2 =$bdd->prepare('INSERT INTO elève
             (
             Id_Utilisateur,
@@ -48,26 +41,11 @@ $req2 =$bdd->prepare('INSERT INTO elève
             Telephone_Eleve,
             Sexe
             )VALUES (?,?,?,?,?,?,?,?)');
-$req2=$req2->execute(array($user_id, $email, $nationalite, $code_postal, $ville, $adresse, $telephone, $sexe
-    //SI CONSTRAINT VIOLATION TRUC ==> Vider les tables manuellement dans élève et utilisateur
+    $req2=$req2->execute(array($user_id, $email, $nationalite, $code_postal, $ville, $adresse, $telephone, $sexe
             ));
-/*
-Type_user($statut){
-
-    if $statut=value()
-    return $statut;
-}
-*/
-
-
     header('Location: Accueil_Eleve.php');
-
-}   
-
-
-
+ }
 ?>
-
 <!doctype html>
 <html>
     <head>
@@ -77,17 +55,17 @@ Type_user($statut){
         <link rel = "stylesheet" href = "style_general.css"/>
     </head>
     <body>
-        <div class = "row">
+        <div class = "row"> <!--Création d'une ligne où la navbar et le reste sont côtes à côtes-->
             <div class = "col-3">
-                <?php require_once ("NavBarre.php"); ?>
+                <?php require_once ("NavBarre.php"); ?> <!--Permet d'afficher la barre de navigation-->
             </div>
             <div class = "col-9">
                 <h1 >M'inscrire</h1>
                 <div class ="row">
-                    <div class ="col-4"></div>
-                    <div class ="Accueil col-8">Accueil</div>
+                    <div class ="col-md-4 col-3"></div>
+                    <div class ="Accueil col-md-8 col-9">Accueil</div> <!--Affiche le mot sur la droite de l'écran-->
                 </div>
-                <form method = "post" action="Inscription.php" class ="cadre">  
+                <form method = "post" action="Inscription.php" class ="cadre">  <!-- Démarre le formulaire et afiche le cadre -->
                     <p>
                         <div class = "row">
                             <div class = "col-4">
@@ -145,12 +123,11 @@ Type_user($statut){
                             </div>  
                         </div>
                         <div class ="row">
-                            <div class ="col-8"></div>
-                            <div class = "col-4">
+                            <div class ="col-md-8 col-12"></div>
+                            <div class = "col-md-4 col">
                             <input class = "inscription" type="submit" value="S'inscrire"/>
                             </div>
-                        </div>
-                        
+                        </div>   
                     </p>
                 </form>
             </div>
