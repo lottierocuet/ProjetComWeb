@@ -1,6 +1,6 @@
 <?php
-
-    include 'index.php'; 
+    include_once "index.php";
+    check_gestionnaire();
     session_start();
     check_connected();
 
