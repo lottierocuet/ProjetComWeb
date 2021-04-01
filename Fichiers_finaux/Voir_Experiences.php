@@ -1,28 +1,18 @@
 <?php
-
-    include_once 'index.php';     
+    include_once "index.php";
+    check_gestionnaire();
+    check_connected();    
     $utilisateur = $_GET['user'];
     $is_me = isset($_SESSION['identifiant']) && $_SESSION['identifiant'] == $utilisateur;
-
     $query = $bdd->prepare('SELECT * FROM utilisateur WHERE Id_Utilisateur = ?');
     $query->execute([$utilisateur]);
     $user = $query->fetch();
-    
     $query = $bdd->prepare('SELECT * FROM expérience 
         JOIN organisation
         ON expérience.Id_Organisation = organisation.Id_Organisation
         WHERE expérience.Id_Utilisateur = ?');
     $query->execute([$utilisateur]);
-
-
-
-    
-
 ?>
- 
-
-
-
 <!doctype html>
 <html>
     <head>
@@ -36,19 +26,20 @@
         <link rel = "stylesheet" href = "style_general.css"/>
     </head>
     <body>
-        <div class = "row">
+        <div class = "row"> <!--Création d'une ligne où la navbar et le reste sont côtes à côtes-->
             <div class = "col-3">
                         <?php if ($statut==1) {?>
                         <?php require_once "NavBarre_Gestionnaire.php"; ?>
                         <?php } else { ?>
                         <?php require_once "NavBarre_Eleve.php"; ?>
                         <?php } ?>
+                <!--Permet d'afficher la barre de navigation selon que l'utilisateur soit élève ou gestionnaire-->
             </div>
             <div class = "col-9">
                 <h1 >Bienvenue</h1>
                 <div class ="row">
-                    <div class ="col-4"></div>
-                    <div class ="Accueil col-8">
+                    <div class ="col-md-4 col-3"></div>
+                    <div class ="Accueil col-md-8 col-9">
                         <?php if ($is_me) {?>
                         Mes expériences
                         <?php } else { ?>
@@ -59,7 +50,6 @@
                 <form method = "get" action="Mes_Experiences.php" class ="Infos">
                     <div class ="cadre"> 
                         <h2>Expériences : </h2>
-
                         <?php foreach($query as $experience) { ?> 
                         <strong><?php echo $experience["Type_Experience"]?> </strong>
                         <br/>
@@ -77,12 +67,10 @@
                         <br/>
                         <br/>
                         <h2>Chez :</h2> <?php echo $experience["Nom_Organisation"]?> -<?php echo $experience["Type_Organisation"]?> <br/>
-
                         <strong>
                         Domaine d'activité :</strong>
                         <?php echo $experience["Domaine_Entreprise"]?>
                         <br/>
-
                         <strong>
                         Adresse : </strong>
                         <?php echo $experience["Rue_Organisation"]?> <br/>
@@ -94,7 +82,7 @@
                 <br/>
                 <br/>
                 <?php if ($is_me) { ?>
-                <a class = "acces_modif" href= "Experience.php"> Ajouter une expérience </a>
+                <a class = "acces_modif" href= "Experience.php"> Ajouter une expérience </a> <!-- Permet d'accéder à la page où on ajoute des expériences -->
                 <?php } ?>
             </div>
         </div>
