@@ -1,7 +1,7 @@
 <?php  
-    Include_once ‘index.php’;
-    Check_gestionnaire();
-    Check_connected();
+    include_once ‘index.php’;
+    check_gestionnaire();
+    check_connected();
     $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
     session_start(); 
     $req = $bdd->query('SELECT * FROM utilisateur');
