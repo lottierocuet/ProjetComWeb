@@ -1,7 +1,7 @@
 <?php
 //OK
 include_once "index.php";
-Check_connected();
+check_connected();
 $error = null;
 if (!empty($_GET['identifiant']) and !empty($_GET['mdp'])) {
     //On met le post identifiant dans la variable $identifiant
