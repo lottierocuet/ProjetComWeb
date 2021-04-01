@@ -1,11 +1,9 @@
 <?php
 include 'index.php';
-
+check_gestionnaire();
 check_connected();
-    
     if(!empty($_POST['titre_experience']) && !empty($_POST['type'])) 
     {
-
       //1) on récupère les données via des post et des variables 
       $identifiant=$_SESSION['identifiant'];
       $titre_experience=$_POST['titre_experience'];
@@ -28,8 +26,6 @@ check_connected();
       $ville_organisation=$_POST['ville_organisation'];
       $code_postal_organisation=$_POST['code_postal_organisation'];
       $adresse_organisation=$_POST['adresse_organisation'];
-    
-        
         $req2 =$bdd->prepare('INSERT INTO organisation
             (
             Nom_Organisation, 
@@ -42,9 +38,7 @@ check_connected();
 $req2=$req2->execute(array(
             $nom_organisation, $type_organisation, $activite_organisation, $ville_organisation, $adresse_organisation, $code_postal_organisation
             ));
-
 $orga_id = $bdd->lastInsertId();
-
         // insert expérience into BD
         //$stmt = $bdd->prepare('select * from utilisateur where Id_Utilisateur=? and Mot_de_passe=?');
         $req =$bdd->prepare('INSERT INTO expérience (
@@ -65,8 +59,6 @@ $orga_id = $bdd->lastInsertId();
             Id_Organisation, 
             Id_Utilisateur
                 )VALUES (:titre_experience, :type, :date_debut, :date_fin, :competence_1, :competence_2, :competence_3, :activite_1, :activite_2, :activite_3, :salaire, :poste, :description, :region, :orga_id, :identifiant)');
-
-
 $req=$req->execute(array(
       'titre_experience'=>$titre_experience,
       'type'=>$type,
@@ -85,16 +77,9 @@ $req=$req->execute(array(
       'orga_id'=>$orga_id,
       'identifiant'=>$identifiant
             ));
-
-
-
-
-
         header("location: Mes_Experiences.php");
-
     }
     ?>
-
   <!doctype html>
 <html>
     <head>
@@ -104,7 +89,7 @@ $req=$req->execute(array(
         <link rel = "stylesheet" href = "style_general.css"/>
     </head>
     <body>
-        <div class = "row">
+        <div class = "row"> <!--Permet d'afficher la barre de navigation élève ou gestionnaire suivant le statut du compte-->
             <div class = "col-3">
                 <?php if ($statut==1) {?>
                         <?php require_once "NavBarre_Gestionnaire.php"; ?>
@@ -116,9 +101,8 @@ $req=$req->execute(array(
                 <h1 >Publier une expérience</h1>
                 <br/>
                 <br/>
-                <form method="post" action="Experience.php" class ="cadre"> 
+                <form method="post" action="Experience.php" class ="cadre"> <!-- Commence le formulaire et affiche le cadre-->
                     <p>
-                        
                         <div class = "row">
                             <div class = "col-4">
                                     <label for="titre_experience">Intitulé de l'expérience :</label> 
@@ -186,13 +170,12 @@ $req=$req->execute(array(
                             </div>  
                         </div>
                         <div class ="row">
-                            <div class ="col-7"></div>
-                            <div class = "col-5">
+                            <div class ="col-md-7 col-12"></div>
+                            <div class = "col-md-5 col">
                                 <input class = "inscription" type="submit" value="Publier"/>
                                 <img src = "images/writing.png" alt = "Image de publication"/>
                             </div>
                         </div>
-                        
                     </p>
                 </form>
             </div>
