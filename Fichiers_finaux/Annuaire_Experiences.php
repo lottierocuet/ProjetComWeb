@@ -1,8 +1,8 @@
 <?php
     include_once "index.php";
     check_gestionnaire();
-    session_start();
     check_connected();
+    session_start();
     $identifiant=$_SESSION['identifiant'];
     $query = $bdd->prepare('SELECT Id_Utilisateur FROM organisation JOIN expérience
                             WHERE expérience.Id_Utilisateur = ?');
