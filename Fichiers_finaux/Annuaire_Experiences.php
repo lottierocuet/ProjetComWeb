@@ -3,23 +3,12 @@
     check_gestionnaire();
     session_start();
     check_connected();
-
     $identifiant=$_SESSION['identifiant'];
-    
     $query = $bdd->prepare('SELECT Id_Utilisateur FROM organisation JOIN expérience
                             WHERE expérience.Id_Utilisateur = ?');
     $query->execute($identifiant);
     $user = $query->fetch();
-    
-
-
-    
-
 ?>
- 
-
-
-
 <!doctype html>
 <html>
     <head>
@@ -29,20 +18,19 @@
         <link rel = "stylesheet" href = "style_general.css"/>
     </head>
     <body>
-        <div class = "row">
+        <div class = "row"> <!--Création d'une ligne où la navbar et le reste sont côtes à côtes-->
             <div class = "col-3">
-                <?php require_once "NavBarre_Gestionnaire.php"; ?>
+                <?php require_once "NavBarre_Gestionnaire.php"; ?> <!--Permet d'afficher la barre de navigation-->
             </div>
             <div class = "col-9">
                 <h1 >Bienvenue</h1>
                 <div class ="row">
-                    <div class ="col-4"></div>
-                    <div class ="Accueil col-8">Profil des expériences</div>
+                    <div class ="col-md-4 col-3"></div>
+                    <div class ="Accueil col-md-8 col-9">Profil des expériences</div> <!--Affiche la phrase sur la droite de l'écran-->
                 </div>
                 <form method = "get" action="Annuaire_Experiences.php" class ="Infos">
-                <div class ="cadre"> 
+                <div class ="cadre"> <!-- Affiche le cadre-->
                     <h2>Expériences : </h2>
-                    
                     <strong><?php echo $user["Type_Experience"]?> </strong>
                     <br/>
                     <?php echo $user["Date_debut_Experience"]?> - <?php echo $user["Date_fin_Experience"]?> - <?php echo $user["Poste"]?> - <?php echo $user["Salaire"]?>
@@ -59,22 +47,21 @@
                     <br/>
                     <br/>
                     <h2>Chez :</h2> <?php echo $user["Nom_Organisation"]?> -<?php echo $user["Type_Organisation"]?> <br/>
-                    
                     <strong>
                     Domaine d'activité :</strong>
                     <?php echo $user["Domaine_Entreprise"]?>
                     <br/>
-
                     <strong>
                     Adresse : </strong>
                     <?php echo $user["Rue_Organisation"]?> <br/>
                     <?php echo $user["Ville_Entreprise"]?> - <?php echo $user["Code_postal_Organisation"]?>  <br/>                 
                     <br/>
+                    <!-- Affiche toutes les informations des expériences postées par un élève -->
                 </div>
                 </form>
                 <br/>
                 <br/>
-                <a class = "acces_modif" href= "Annuaire_Info.php"> Voir ses coordonnées</a>
+                <a class = "acces_modif" href= "Annuaire.php"> Retour à l'annuaire </a> <!-- Relie cette page à l'annuaire --> 
             </div>
         </div>
     </body>
