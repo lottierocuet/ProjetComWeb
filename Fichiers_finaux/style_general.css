@@ -3,18 +3,21 @@ img
     width: 80px;
     height: auto;
 }
+/*taille des images*/
 
 body{
     background-image: url("images/fond.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+/*image de fond*/
 
 .Accueil
 {
     color: gray;
     font-size: 30px;
 }
+//écritures au-dessus du cadre
 
 .cadre{
     border: 5px solid black;
@@ -23,10 +26,12 @@ body{
     width: 50%;
     padding-left: 5%;
 }
+/*faire le cadre*/
 
 input{
     border-radius: 10px;
 }
+/*change les coins des blocs formulaire$*/
 
 .inscription{
     background-color: rgb(126, 183, 190);
@@ -46,7 +51,8 @@ textarea{
     padding-left: 1%;
     padding-right: 1%;
 }
-/* Création */
+/*pour les boutons d'accès aux autres pages (en bas des pages)
+Création */
 
 
 legend{
